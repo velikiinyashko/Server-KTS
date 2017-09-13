@@ -1,0 +1,95 @@
+﻿<Window x:Class="Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="725">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <Button>test</Button>
+        </Menu>
+        <TabControl Grid.Row="1" x:Name="MainTabs">
+            <TabItem x:Name="TabStatistic">
+                <TabItem.Header>
+                    <TextBlock Text="Statistic"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DataGrid/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="TabAdministrative">
+                <TabItem.Header>
+                    <TextBlock Text="Administrator"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl x:Name="AdministratorTabs">
+                        <TabItem x:Name="Clients">
+                            <TabItem.Header>
+                                <TextBlock Text="Clients"/>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <DataGrid/>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="Objects">
+                            <TabItem.Header>
+                                <TextBlock Text="Objects"/>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <DataGrid/>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="Trackers">
+                            <TabItem.Header>
+                                <TextBlock Text="Trackers"/>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <DataGrid/>
+                            </TabItem.Content>
+                        </TabItem>
+                    </TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="TabOptions">
+                <TabItem.Header>
+                    <TextBlock Text="Options"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <DataGrid IsReadOnly="True" Grid.Row="0" x:Name="ConfigData" ItemsSource="{Binding}"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="Create" Margin="5" IsEnabled="False" x:Name="CreateButton" Click="CreateClick"/>
+                            <Button Grid.Column="1" Content="Edit" Margin="5"/>
+                            <Button Grid.Column="2" Content="Test" Margin="5"/>
+                        </Grid>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="Logs">
+                <TabItem.Header>
+                    <TextBlock Text="Logs"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TextBox IsReadOnly="True"/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="Server.Views.Configuration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Server.Views"
+        mc:Ignorable="d"
+        Title="Configuration" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="0"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3 3 3 3"/>
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Загаловок -->
+            <RowDefinition Height="40"/>
+            <!-- Параметры Настройки -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Version}"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Text block -->
+            <TextBlock Grid.Row="0" Text="Address Server"/>
+            <TextBlock Grid.Row="1" Text="Port Server"/>
+            <TextBlock Grid.Row="2" Text="Addres DB"/>
+            <TextBlock Grid.Row="3" Text="Port DB"/>
+            <TextBlock Grid.Row="4" Text="User DB"/>
+            <TextBlock Grid.Row="5" Text="Password DB"/>
+            <TextBlock Grid.Row="6" Text="Name DB"/>
+            <!-- End text block-->
+            
+            <!-- Textbox Block -->
+            <TextBox Grid.Row="0" Text="{Binding Address}"/>
+            <TextBox Grid.Row="1" Text="{Binding Port}"/>
+            <TextBox Grid.Row="2" Text="{Binding AddressBase}"/>
+            <TextBox Grid.Row="3" Text="{Binding PortBase}"/>
+            <TextBox Grid.Row="4" Text="{Binding UserBase}"/>
+            <TextBox Grid.Row="5" Text="{Binding PasswdBase}"/>
+            <TextBox Grid.Row="6" Text="{Binding NameBase}"/>
+            <!-- End textbox block -->
+            
+            <Button Grid.Row="7" IsDefault="True" Grid.Column="0" Content="Save" Margin="3" Click="AccessClick"/>
+            <Button Grid.Row="7" IsCancel="True" Grid.Column="1" Content="Cancel" Margin="3"/>
+        </Grid>
+    </Grid>
+</Window>
